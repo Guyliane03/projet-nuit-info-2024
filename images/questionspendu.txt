@@ -13,7 +13,7 @@
 
     "Les ________ océaniques peuvent être comparés au système nerveux central, régulant le climat mondial en réagissant aux changements de température." (Courants océaniques)
     "Les ________ marins, comme les courants chauds et froids, agissent comme des signaux nerveux qui régulent le climat de la planète." (Courants)
-
+    "La température des ______ peut être comparé à la température du corps humain, quelques degrés en plus suffisent à avoir de gros problèmes." (océans)
 
 5. Système immunitaire
 
