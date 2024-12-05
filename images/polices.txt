@@ -17,3 +17,6 @@ https://www.dafont.com/fr/pixeled.font
 Choisies : 
 https://www.dafont.com/fr/joystix.font
 https://www.dafont.com/fr/pixel-highscore.font?text=ARCADE
+
+Equivallents google fonts : 
+https://fonts.google.com/specimen/Press+Start+2P?query=press
