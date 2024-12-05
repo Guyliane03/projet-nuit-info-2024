@@ -12,7 +12,7 @@ function generateAlphabet() {
 
     alphabetFr.forEach(letter => {
         const span = document.createElement("span");
-        span.textContent = letter;
+        span.textContent = letter + " ";
         span.id = letter.toLowerCase();
         container.appendChild(span);
     });
