@@ -8,7 +8,16 @@
 </head>
 <body>
     <header>
-        <button>|||</button>
+        <button class="handicap-menu">|||</button>
+        <div class="handicap-content">
+            <input type="checkbox" name="activ_handicap" id="activ_handicap">
+            <label for="activ_handicap">Activer le mode Daltonien</label>
+            <div class="slider-container">
+                <label for="slider">Taille:</label>
+                <input type="range" id="slider" min="-10" max="10" value="0">
+                <span id="slider-value">0</span>
+              </div>
+        </div>
     </header>
     <section class="water-effect">
         <h1>Bienvenue</h1>
