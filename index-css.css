@@ -1,67 +1,80 @@
+/* Importation de la police pour un style moderne */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
-    background: url('images/map.jpeg');
-    background-size: cover;
-    perspective: 1000px; /* Ajout de la perspective */
+    background: url('images/map.jpeg') no-repeat center center/cover;
+    color: #333;
 }
 
+.water-effect {
+    position: relative;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+
 header {
-    background-color: rgba(255, 255, 255, 0.8);
-    padding: 10px;
-    text-align: center;
-    transform-origin: center; /* Centrage de la transformation */
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 header button {
     background: none;
     border: none;
+    color: #fff;
     font-size: 24px;
     cursor: pointer;
 }
 
-.water-effect {
-    text-align: center;
-    padding: 50px;
-    background-color: rgba(255, 255, 255, 0.8);
-    margin: 20px;
-    border-radius: 10px;
-    height: 600px;
-}
+
 
 .water-effect h1 {
-    font-size: 36px;
-    margin-bottom: 20px;
+    font-size: 148px;
+    margin: 0;
 }
 
 .water-effect button {
+    background-color: rgba(0, 123, 255, 0.7);
+    border: none;
     padding: 10px 20px;
+    color: #fff;
     font-size: 18px;
     cursor: pointer;
-    border: none;
     border-radius: 5px;
-    background-color: #007BFF;
-    color: white;
-    }
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.water-effect button:hover {
+    background-color: rgba(0, 123, 255, 1);
+}
 
 .layout, .info-block {
     padding: 20px;
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(255, 255, 255, 0.5); /* Fond blanc avec transparence */
     margin: 20px;
     border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-h {
+.layout h2, .info-block h2 {
     font-size: 24px;
     margin-bottom: 10px;
 }
 
-h2 {
-    font-size: 24px;
-    margin-bottom: 10px;
-}
-
-p {
+.layout p, .info-block p {
     font-size: 16px;
+    line-height: 1.5;
 }
