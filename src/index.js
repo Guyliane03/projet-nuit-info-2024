@@ -17,6 +17,8 @@ function augmenterTexte(pixel) {
 (function() {
     'use strict';
 
+    let etat_menu_open = false;
+
     document.addEventListener("DOMContentLoaded", function () {
         const slider = document.getElementById("slider");
         const sliderValue = document.getElementById("slider-value");
@@ -38,10 +40,13 @@ function augmenterTexte(pixel) {
 
         });
 
+        document.querySelector(".handicap-content").style.display = "none";
         const handicapMenuButton = document.querySelector(".handicap-menu");
 
         handicapMenuButton.addEventListener("click", function(){
-
+            if (!etat_menu_open) document.querySelector(".handicap-content").style.display = "";
+            else document.querySelector(".handicap-content").style.display = "none";
+            etat_menu_open = !etat_menu_open;
         });
     });
 
