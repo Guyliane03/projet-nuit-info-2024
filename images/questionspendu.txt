@@ -1,7 +1,4 @@
-1. Système respiratoire
 
-    "Les ________ marins, comme les planctons, sont les poumons de la Terre, produisant de l'oxygène pour l'humanité." (Planctons)
-    "Tout comme nos poumons, les ________ marins absorbent le dioxyde de carbone et produisent de l'oxygène." (Océans)
 
 2. Système circulatoire
 
@@ -10,13 +7,13 @@
 
 3. Système digestif
 
-    "Les ________ océaniques décomposent les matières organiques de la même manière que notre estomac digère les aliments." (Bactéries marines)
-    "Les ________ marins jouent un rôle similaire aux enzymes humaines, en décomposant les matières organiques." (Planctons)
+   -> "Les ________ marines décomposent les matières organiques de la même manière que notre estomac digère les aliments." (Bactéries)
 
 4. Système nerveux
 
     "Les ________ océaniques peuvent être comparés au système nerveux central, régulant le climat mondial en réagissant aux changements de température." (Courants océaniques)
     "Les ________ marins, comme les courants chauds et froids, agissent comme des signaux nerveux qui régulent le climat de la planète." (Courants)
+
 
 5. Système immunitaire
 
