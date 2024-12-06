@@ -13,6 +13,8 @@ const réponsesPendu = ["MIGRATION", "ELEVATION", "OCEANS"];
 
 let mot = 0;
 
+let nbErreurs = 0;
+
 // Fonction pour générer les spans
 function generateAlphabet() {
     const container = document.createElement('div');
@@ -58,6 +60,8 @@ function updateMotATrouve(mot1, lettre) {
         }
     } else {
         console.log(`La lettre ${lettre} n'est pas dans le mot.`);
+        nbErreurs++;
+        console.log("Nombre d'erreurs : " + nbErreurs);
     }
 }
 
