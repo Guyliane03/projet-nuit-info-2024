@@ -27,12 +27,12 @@ function augmenterTexte(pixel) {
     bateau.style.top = position_top[0];
     bateau.style.left = position_left[0];
 
-    setInterval(function() {
-        if (etat > 3) etat = 0;
-        bateau.style.top = position_top[etat];
-        bateau.style.left = position_left[etat];
-        etat++;
-    }, 1000);
+    function changePositionBateau(position) {
+        bateau.style.top = position_top[position];
+        bateau.style.left = position_left[position];
+    }
+
+    changePositionBateau(localStorage.getItem("games_completed"))
 
     let position_top_poubelle = ["450px", "580px", "350px"];
     let position_left_poubelle = ["150px", "1550px", "1300px"];
