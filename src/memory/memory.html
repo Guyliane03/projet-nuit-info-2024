@@ -141,12 +141,12 @@
 
     <script>
         const cardsArray = [
-            { id: 1, image: '../images/bateau_peche.jpg', definition: 'Petits bateaux de pêche artisanaux.\nÉmissions estimées : 23 à 80 kg de CO₂/jour.' },
-            { id: 2, image: '../images/katamaranX70.png', definition: 'Catamaran X70 (Race for Water).\nLe catamaran est équipé de panneaux solaires et utilise l\'hydrogène comme source d\'énergie, produit à partir de l\'eau via l\'électrolyse. Ce système permet au bateau de fonctionner de manière autonome, sans émissions polluantes.' },
-            { id: 3, image: '../images/mod70.avif', definition: 'Trimaran MOD70 "(Race for Water).\nCe trimaran est donc conçu pour fonctionner sans émission de CO₂ et pour utiliser l\'hydrogène comme source d\'énergie, produit via l\'électrolyse de l\'eau à partir de l\'énergie solaire ou éolienne à bord.' },
-            { id: 4, image: '../images/paquebot.jpg', definition: 'Un paquebot de croisière.\nÉmissions estimées : 450 à 960 tonnes de CO₂/jour.' },
-            { id: 5, image: '../images/restwater2017.webp', definition: 'Navire race for Water./nIl a été conçu pour être un navire zéro émission en termes d\'émissions de CO₂ pendant ses voyages, grâce à l’utilisation de sources d\'énergie renouvelable. Il fonctionne principalement grâce à trois systèmes : \n.Énergie solaire\n.Énergie éolienne.\n.Hydrogène.' },
-            { id: 6, image: '../images/yacht.webp', definition: 'Superyachts.\nÉmissions estimées : 9200 à 54 000 kg de CO₂/jour.' }
+            { id: 1, image: 'images/bateau_peche.jpg', definition: 'Petits bateaux de pêche artisanaux.\nÉmissions estimées : 23 à 80 kg de CO₂/jour.' },
+            { id: 2, image: 'images/katamaranX70.png', definition: 'Catamaran X70 (Race for Water).\nLe catamaran est équipé de panneaux solaires et utilise l\'hydrogène comme source d\'énergie, produit à partir de l\'eau via l\'électrolyse. Ce système permet au bateau de fonctionner de manière autonome, sans émissions polluantes.' },
+            { id: 3, image: 'images/mod70.avif', definition: 'Trimaran MOD70 "(Race for Water).\nCe trimaran est donc conçu pour fonctionner sans émission de CO₂ et pour utiliser l\'hydrogène comme source d\'énergie, produit via l\'électrolyse de l\'eau à partir de l\'énergie solaire ou éolienne à bord.' },
+            { id: 4, image: 'images/paquebot.jpg', definition: 'Un paquebot de croisière.\nÉmissions estimées : 450 à 960 tonnes de CO₂/jour.' },
+            { id: 5, image: 'images/restwater2017.webp', definition: 'Navire race for Water./nIl a été conçu pour être un navire zéro émission en termes d\'émissions de CO₂ pendant ses voyages, grâce à l’utilisation de sources d\'énergie renouvelable. Il fonctionne principalement grâce à trois systèmes : \n.Énergie solaire\n.Énergie éolienne.\n.Hydrogène.' },
+            { id: 6, image: 'images/yacht.webp', definition: 'Superyachts.\nÉmissions estimées : 9200 à 54 000 kg de CO₂/jour.' }
         ];
 
         // Duplicate the array to create pairs
@@ -219,23 +219,7 @@
                 if (matchedPairs === cardsArray.length) {
                     messageText.textContent = "Bravo ! Vous avez trouvé toutes les paires.";
                     definitionText.textContent = 'Toutes les paires ont été trouvées. Félicitations !';
-                    state = 1;
-                    setSpeechBubble("Merci, voyageur, d’avoir plongé dans les mystères de l’océan et d’avoir révélé les vérités cachées derrière les vagues. Grâce à ta curiosité et ta vigilance, tu as découvert les liens profonds entre l’océan et le monde qui t'entoure, et tu as compris les effets du réchauffement climatique et des émissions polluantes des bateaux sur mon royaume.");
-                    toggleVisibility();
-                    document.addEventListener("click", function(){
-                        if (state == 1){
-                            setSpeechBubble("Mais n'oublie jamais : cette aventure n'est que le début. L'océan, tout comme notre planète, nécessite une vigilance constante. Les menaces sont réelles, mais avec chaque geste, chaque prise de conscience, tu peux faire une différence. Le voyage pour protéger mon monde n'est pas encore terminé… il te revient de partager ce savoir, de sensibiliser, et de continuer à être un gardien de l'océan.");
-                            state = 2;
-                        }
-                        else if (state == 2){
-                            setSpeechBubble("Souviens-toi toujours : l'avenir de l'océan est aussi l'avenir de la Terre. Et ensemble, nous avons le pouvoir de changer les vagues du destin.");
-                            state = 3;
-                        }
-                        else if (state == 3){
-                            toggleVisibility();
-                            state = 5;
-                        }
-                    });
+                    terminerButton.style.display = "block"; 
                 }
             } else {
                 firstCard.classList.remove('flipped');
@@ -244,6 +228,13 @@
 
             flippedCards = [];
         }
+        const terminerButton = document.createElement('button');
+        terminerButton.textContent = "Terminer";
+        terminerButton.style.display = "none";
+        terminerButton.onclick = () => {
+            window.location.href = "../map/map.html";
+        };
+        document.body.appendChild(terminerButton);
     </script>
 
     <script src="../bonhomme.js"></script>
