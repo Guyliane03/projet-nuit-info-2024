@@ -89,7 +89,6 @@ header button:hover {
     text-align: center;
     color: #fff;
     text-shadow: 3px 3px 6px #ff007f, 0 0 10px #00ffff, 0 0 20px #00ffff;
-    background: rgba(0, 0, 0, 0.5); /* Semi-transparence pour faire ressortir le texte */
     box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.8);
     z-index: 1;
 }
@@ -205,4 +204,9 @@ header button:hover {
     #bateau {
         width: 100px;
     }
+}
+
+#fond-noir{
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparence pour faire ressortir le texte */
+
 }
