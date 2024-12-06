@@ -53,6 +53,7 @@ function showQuestion() {
 
     if (currentQuestionIndex >= questions.length) {
         quizContainer.innerHTML = "<h2>Quiz terminé ! 🎉</h2>";
+        localStorage.setItem("games_completed",1);
         return;
     }
 
