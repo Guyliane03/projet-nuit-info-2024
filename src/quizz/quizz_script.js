@@ -95,7 +95,7 @@ function checkAnswer(selectedAnswer, button, choicesDiv, correctAnswer, explanat
         feedback.textContent = "Bonne réponse ! 🎉 " + explanation + "\n";
         feedback.classList.add('correct');
     } else {
-        feedback.textContent = `Mauvaise réponse. La bonne réponse était ${correctAnswer}. ${explanation}.\n`;
+        feedback.textContent = `Mauvaise réponse. La bonne réponse était ${correctAnswer}. ${explanation}\n`;
         feedback.classList.add('incorrect');
     }
 
