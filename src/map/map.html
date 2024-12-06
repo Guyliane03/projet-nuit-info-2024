@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Effet d'eau et Menu</title>
     <audio id="audio-player" autoplay>
-        <source id="audio-source" src="../../audio/audio1.mp3" type="audio/mp3">
+        <source id="audio-source" src="" type="audio/mp3">
     </audio>
     <link rel="stylesheet" href="map-style.css">
 </head>
@@ -26,7 +26,7 @@
                 audioElement.load(); // Recharge le nouvel audio
                 audioElement.play(); // Lance la lecture de l'audio
             }
-
+            changeAudio("../../audio/audio1.mp3")
             setSpeechBubble("Bienvenue, voyageur... Je suis l’Esprit de l’Océan. Aujourd’hui, l’équilibre est brisé.");
             toggleVisibility();
             document.addEventListener("click", function(){
