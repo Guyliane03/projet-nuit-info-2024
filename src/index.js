@@ -52,8 +52,8 @@ function augmenterTexte(pixel) {
 
 
     let etat = 1;
-    let position_top = ["200px","275px","20px","-250px"];
-    let position_left = ["200px","700px","1150px","850px"];
+    let position_top = ["100px", "250px", "30px"];
+    let position_left = ["-150px", "1250px", "1000px"];
 
     const bateau = document.querySelector("#bateau");
 
