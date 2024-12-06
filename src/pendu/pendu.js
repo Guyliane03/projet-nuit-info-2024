@@ -136,6 +136,7 @@ nextButton.onclick = () => {
     if (mot >= questionsPendu.length) {
         congratulations.textContent = "Toutes les questions ont été affichées !";
         nextButton.style.display = "none";
+        terminerButton.style.display = "block"; // Afficher le bouton "Terminer"
     } else {
         question.textContent = questionsPendu[mot];
         motATrouve.textContent = "_".repeat(réponsesPendu[mot].length);
@@ -154,5 +155,14 @@ nextButton.onclick = () => {
     }
 };
 buttonContainer.appendChild(nextButton);
+
+const terminerButton = document.createElement('button');
+terminerButton.textContent = "Terminer";
+terminerButton.style.display = "none";
+terminerButton.onclick = () => {
+    alert("Merci d'avoir joué au Pendu ! À bientôt !");
+    location.reload(); // Recharger la page pour recommencer le jeu
+};
+buttonContainer.appendChild(terminerButton);
 
 generateAlphabet();
