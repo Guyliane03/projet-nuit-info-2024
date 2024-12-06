@@ -32,6 +32,8 @@ function augmenterTexte(pixel) {
 (function() {
     'use strict';
 
+    localStorage.setItem("games_completed", 0);
+
     let etat_menu_open = false;
 
     document.addEventListener("DOMContentLoaded", function () {

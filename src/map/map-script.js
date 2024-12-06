@@ -52,9 +52,11 @@ function augmenterTexte(pixel) {
         poubelle.style.left = position_left_poubelle[i];
         poubelle.style.position = "absolute";
 
-        poubelle.addEventListener("click", function(){
-            document.location.href=link_poubelles[i];
-        });
+        if (i<=localStorage.getItem("games_completed")){
+            poubelle.addEventListener("click", function(){
+                document.location.href=link_poubelles[i];
+            });
+        }
 
         container.appendChild(poubelle);
         poubelles.push(poubelle);
