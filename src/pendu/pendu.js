@@ -137,6 +137,7 @@ nextButton.onclick = () => {
         congratulations.textContent = "Toutes les questions ont été affichées !";
         nextButton.style.display = "none";
         terminerButton.style.display = "block"; // Afficher le bouton "Terminer"
+        localStorage.setItem("games_completed",2);
     } else {
         question.textContent = questionsPendu[mot];
         motATrouve.textContent = "_".repeat(réponsesPendu[mot].length);
