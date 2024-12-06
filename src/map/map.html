@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Effet d'eau et Menu</title>
+    <audio id="audio-player" autoplay>
+        <source id="audio-source" src="audio1.mp3" type="audio/mp3">
+    </audio>
     <link rel="stylesheet" href="map-style.css">
 </head>
 <body>
@@ -16,14 +19,24 @@
     <script>
         if (localStorage.getItem("games_completed") == 0){
             state = 1;
+            function changeAudio(source) {
+                const audioElement = document.getElementById("audio-player");
+                const audioSource = document.getElementById("audio-source");
+                audioSource.src = source;
+                audioElement.load(); // Recharge le nouvel audio
+                audioElement.play(); // Lance la lecture de l'audio
+            }
+
             setSpeechBubble("Bienvenue, voyageur... Je suis l’Esprit de l’Océan. Aujourd’hui, l’équilibre est brisé.");
             toggleVisibility();
             document.addEventListener("click", function(){
                 if (state == 1){
+                    changeAudio("audio2.mp3");
                     setSpeechBubble("Les températures montent, les glaciers fondent, et les courants vitaux de notre monde sont perturbés. Les bateaux qui voguent sur mes eaux, imprudents et polluants empoisonnent mes profondeurs avec leurs émissions et modifient l'équilibre fragile que je protège. Si rien n’est fait, tout pourrait s’effondrer.");
                     state = 2;
                 }
                 else if (state == 2){
+                    changeAudio("audio3.mp3");
                     setSpeechBubble("Je sollicite ton aide !");
                     state = 3;
                 }
