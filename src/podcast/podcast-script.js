@@ -1,4 +1,19 @@
 // Sample tracks
+// Fonction pour jouer ou mettre en pause l'audio
+         function playPauseAudio() {
+            var audio = document.getElementById("audio");
+
+            // Si l'audio est en pause, on le joue. Sinon, on le met en pause.
+            if (audio.paused) {
+                audio.play();
+                document.querySelector('.speaker-btn i').classList.remove('fa-volume-up');
+                document.querySelector('.speaker-btn i').classList.add('fa-volume-mute');
+            } else {
+                audio.pause();
+                document.querySelector('.speaker-btn i').classList.remove('fa-volume-mute');
+                document.querySelector('.speaker-btn i').classList.add('fa-volume-up');
+            }
+        }
 const tracks = [
     {
         title: "Oona Layolle-001-SD",
