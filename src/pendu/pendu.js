@@ -12,6 +12,8 @@ const questionsPendu = [
 const réponsesPendu = ["MIGRATION", "ELEVATION", "OCEANS"];
 
 let mot = 0;
+let erreurs = 0; // Compteur d'erreurs
+const maxErreurs = 7; // Nombre maximum d'erreurs
 
 function generateAlphabet() {
     const container = document.createElement('div');
@@ -36,9 +38,11 @@ function generateAlphabet() {
 
             // Vérifier si la lettre est correcte ou non
             if (bonneLettre(réponsesPendu[mot], letter)) {
-                span.style.backgroundColor = #00ff6a; // Correcte
+                span.style.backgroundColor = "green"; // Correcte
             } else {
                 span.style.backgroundColor = "red"; // Incorrecte
+                erreurs++; // Incrémenter les erreurs
+                updateErrors(); // Mettre à jour l'affichage des erreurs
             }
             span.style.color = "white"; // Rendre le texte plus visible
             span.style.pointerEvents = "none"; // Désactiver le clic
@@ -68,10 +72,35 @@ function updateMotATrouve(mot1, lettre) {
         motATrouve.textContent = updatedText;
 
         if (motATrouve.textContent === mot1) {
+            // Remplace tous les underscores dans la question par le mot trouvé
+            question.textContent = questionsPendu[mot].replace(/_+/g, mot1);
+
             congratulations.textContent = `Bravo ! Vous avez trouvé le mot : ${mot1}`;
             nextButton.style.display = "block";
         }
     }
+}
+
+function updateErrors() {
+    errorDisplay.textContent = `Erreurs : ${erreurs} / ${maxErreurs}`;
+    if (erreurs >= maxErreurs) {
+        gameOver();
+    }
+}
+
+function gameOver() {
+    congratulations.textContent = "Game Over ! Vous avez épuisé vos essais.";
+    congratulations.style.color = "red";
+
+    // Désactiver toutes les lettres
+    const spans = document.querySelectorAll('#clavier span');
+    spans.forEach(span => {
+        span.style.pointerEvents = "none";
+        span.style.opacity = "0.6";
+    });
+
+    // Masquer le bouton "Suivant" s'il est visible
+    nextButton.style.display = "none";
 }
 
 const question = document.createElement("p");
@@ -83,9 +112,15 @@ motATrouve.textContent = "_".repeat(réponsesPendu[mot].length);
 document.body.appendChild(motATrouve);
 
 const congratulations = document.createElement('p');
-congratulations.style.color = #00ff6a;
+congratulations.style.color = "#00ff6a";
 congratulations.style.fontWeight = 'bold';
 document.body.appendChild(congratulations);
+
+const errorDisplay = document.createElement('p');
+errorDisplay.style.color = "red";
+errorDisplay.style.fontWeight = 'bold';
+errorDisplay.textContent = `Erreurs : ${erreurs} / ${maxErreurs}`;
+document.body.appendChild(errorDisplay);
 
 const buttonContainer = document.createElement('div');
 buttonContainer.style.textAlign = "center";
@@ -96,6 +131,7 @@ nextButton.textContent = "Suivant";
 nextButton.style.display = "none";
 nextButton.onclick = () => {
     mot++;
+    erreurs = 0; // Réinitialiser les erreurs
 
     if (mot >= questionsPendu.length) {
         congratulations.textContent = "Toutes les questions ont été affichées !";
@@ -104,6 +140,7 @@ nextButton.onclick = () => {
         question.textContent = questionsPendu[mot];
         motATrouve.textContent = "_".repeat(réponsesPendu[mot].length);
         congratulations.textContent = "";
+        errorDisplay.textContent = `Erreurs : ${erreurs} / ${maxErreurs}`;
         nextButton.style.display = "none";
 
         // Réinitialiser l'état des lettres
