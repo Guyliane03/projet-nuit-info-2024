@@ -16,7 +16,8 @@ function augmenterTexte(pixel) {
 (function() {
     'use strict';
 
-    let etat = 1;
+    if (localStorage.getItem("games_completed") == null) localStorage.setItem("games_completed", 0);
+
     let position_top = ["100px", "250px", "30px"];
     let position_left = ["-150px", "1250px", "1000px"];
 
@@ -28,6 +29,7 @@ function augmenterTexte(pixel) {
     bateau.style.left = position_left[0];
 
     function changePositionBateau(position) {
+        console.log(position);
         bateau.style.top = position_top[position];
         bateau.style.left = position_left[position];
     }
@@ -56,6 +58,12 @@ function augmenterTexte(pixel) {
             poubelle.addEventListener("click", function(){
                 document.location.href=link_poubelles[i];
             });
+
+            if (i == localStorage.getItem("games_completed")){
+                bateau.addEventListener("click", function(){
+                    document.location.href=link_poubelles[i];
+                });
+            }
         }
 
         container.appendChild(poubelle);
