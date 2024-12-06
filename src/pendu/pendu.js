@@ -135,8 +135,7 @@ nextButton.onclick = () => {
 
     if (mot >= questionsPendu.length) {
         congratulations.textContent = "Toutes les questions ont été affichées !";
-        localStorage.setItem("games_completed",2);
-        nextButton.disabled = true; 
+        nextButton.style.display = "none";
     } else {
         question.textContent = questionsPendu[mot];
         motATrouve.textContent = "_".repeat(réponsesPendu[mot].length);
