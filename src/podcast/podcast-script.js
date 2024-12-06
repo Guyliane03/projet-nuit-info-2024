@@ -1,21 +1,15 @@
 // Sample tracks
 const tracks = [
     {
-        title: "Cyber Groove",
-        artist: "Neon Beat",
-        src: "audio/cyber-groove.mp3",
+        title: "Oona Layolle-001-SD",
+        artist: "Florian Sevellec",
+        src: "audio/Florian Sevellec - Oona Layolle-001-SD 480p.mp3",
         cover: "images/logo.png"
     },
     {
-        title: "Digital Dreams",
-        artist: "Tech Vision",
-        src: "audio/digital-dreams.mp3",
-        cover: "images/logo.png"
-    },
-    {
-        title: "Futuristic Flow",
-        artist: "Synth Lord",
-        src: "audio/futuristic-flow.mp3",
+        title: "Sevellec-004-SD",
+        artist: "Florian Sevellec",
+        src: "audio/Florian Sevellec-004-SD 480p.mp3",
         cover: "images/logo.png"
     }
 ];
