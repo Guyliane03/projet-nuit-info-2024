@@ -50,6 +50,12 @@ function updateMotATrouve(mot1, lettre) {
             }
         }
         motATrouve.textContent = updatedText; // Mettre à jour l'affichage
+
+        // Vérifier si le mot entier a été trouvé
+        if (motATrouve.textContent === mot1) {
+            // Afficher un message de félicitations
+            congratulations.textContent = `Bravo ! Vous avez trouvé le mot : ${mot1}`;
+        }
     } else {
         console.log(`La lettre ${lettre} n'est pas dans le mot.`);
     }
@@ -65,6 +71,11 @@ let motATrouve = document.createElement('p');
 motATrouve.textContent = "_".repeat(réponsesPendu[mot].length);
 document.body.appendChild(motATrouve);
 
+// Ajout du message de félicitations
+const congratulations = document.createElement('p');
+congratulations.id = 'congratulations';
+document.body.appendChild(congratulations);
+
 // Bouton "Suivant"
 const nextButton = document.createElement('button');
 nextButton.textContent = "Suivant";
@@ -72,15 +83,18 @@ nextButton.onclick = () => {
     mot++;
 
     if (mot >= questionsPendu.length) {
-        alert("Toutes les questions ont été affichées !");
+        congratulations.textContent = "Toutes les questions ont été affichées !";
         nextButton.disabled = true; 
     } else {
         question.textContent = questionsPendu[mot];
         motATrouve.textContent = "_".repeat(réponsesPendu[mot].length); // Réinitialiser l'affichage du mot
+        congratulations.textContent = ""; // Réinitialiser le message de félicitations
     }
 };
 
-document.body.appendChild(nextButton);
-
 // Générer l'alphabet
 generateAlphabet();
+
+document.body.appendChild(nextButton);
+
+
