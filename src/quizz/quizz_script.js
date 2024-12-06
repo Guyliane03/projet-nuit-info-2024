@@ -113,9 +113,10 @@ function checkAnswer(selectedAnswer, button, choicesDiv, correctAnswer, explanat
 const doneButton = document.createElement('button');
 doneButton.textContent = "Terminer";
 doneButton.style.display = "none";
-doneButton.onClick = () => {
-    window.location.href = "https://guyliane03.github.io/projet-nuit-info-2024/src/map/map.html";
-}
+doneButton.addEventListener('click', () => {
+    window.location.href = "../map/map.html";
+});
 document.body.appendChild(doneButton);
+
 
 showQuestion();
