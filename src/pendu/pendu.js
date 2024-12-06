@@ -100,7 +100,7 @@ function gameOver() {
     });
 
     // Masquer le bouton "Suivant" s'il est visible
-    nextButton.style.display = "none";
+    nextButton.style.display = "block";
 }
 
 const question = document.createElement("p");
