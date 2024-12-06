@@ -8,15 +8,17 @@ body {
     background: linear-gradient(180deg, #001f3f, #000); /* Dégradé sombre pour l'effet arcade */
     color: #fff; /* Texte blanc */
     text-shadow: 1px 1px 2px #000; /* Légère ombre pour le texte */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    display: block; /* Remplacer 'flex' par 'block' pour que le contenu s'adapte */
+    min-height: 100vh; /* Garantir que la fenêtre a au moins la hauteur de l'écran */
+    height: auto; /* La hauteur s'ajuste en fonction du contenu */
+    overflow: auto; /* Permet de défiler si nécessaire */
+    padding-top: 20px; /* Optionnel : espace supplémentaire en haut pour que le contenu ne touche pas le bord */
 }
+
 
 h1 {
     text-align: center;
-    color: #ff007f; /* Couleur néon rose */
+    color: #ffffff; /* Couleur néon rose */
     font-size: 40px;
     text-shadow: 3px 3px 6px #ff007f, 0 0 10px #ff007f, 0 0 20px #ff007f; /* Effet lumineux */
     margin-bottom: 20px;
@@ -71,12 +73,12 @@ h1 {
 
 .feedback.correct {
     color: #00ff6a; /* Vert néon pour la bonne réponse */
-    text-shadow: 0 0 10px #00ff6a, 0 0 20px #00ff6a;
+    /*text-shadow: 0 0 10px #00ff6a, 0 0 20px #00ff6a;*/
 }
 
 .feedback.incorrect {
     color: #ff007f; /* Rouge néon pour la mauvaise réponse */
-    text-shadow: 0 0 10px #ff007f, 0 0 20px #ff007f;
+    /*text-shadow: 0 0 10px #ff007f, 0 0 20px #ff007f;*/
 }
 
 button {
