@@ -160,8 +160,7 @@ const terminerButton = document.createElement('button');
 terminerButton.textContent = "Terminer";
 terminerButton.style.display = "none";
 terminerButton.onclick = () => {
-    alert("Merci d'avoir joué au Pendu ! À bientôt !");
-    location.reload(); // Recharger la page pour recommencer le jeu
+    window.location.href = "../map/map.html";
 };
 buttonContainer.appendChild(terminerButton);
 
