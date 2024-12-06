@@ -13,5 +13,29 @@
     <img src="images/bateau-removebg-preview.png" alt="" id="bateau">
     <script src="map-script.js"></script>
     <script src="../bonhomme.js"></script>
+    <script>
+        state = 1;
+        setSpeechBubble("Bienvenue, voyageur... Je suis l’Esprit de l’Océan. Aujourd’hui, l’équilibre est brisé.");
+        toggleVisibility();
+        document.addEventListener("click", function(){
+            if (state == 1){
+                setSpeechBubble("Les températures montent, les glaciers fondent, et les courants vitaux de notre monde sont perturbés. Les bateaux qui voguent sur mes eaux, imprudents et polluants empoisonnent mes profondeurs avec leurs émissions et modifient l'équilibre fragile que je protège. Si rien n’est fait, tout pourrait s’effondrer.");
+                state = 2;
+            }
+            else if (state == 2){
+                setSpeechBubble("Je sollicite ton aide !");
+                state = 3;
+            }
+            else if (state == 3){
+                setSpeechBubble("Seul, je ne peux empêcher cette catastrophe. Mais toi, tu peux découvrir, comprendre et agir. Ensemble, nous avons la force de réparer les blessures infligées. Mais pour ce faire, tu devras plonger dans les mystères de l’océan, apprendre ses secrets et observer les conséquences de chaque acte sur cet écosystème vital. Seule la connaissance et l’action peuvent sauver ce qui reste...");
+                state = 4;
+            }
+            else if (state == 4){
+                toggleVisibility();
+                state = 5;
+            }
+        });
+
+    </script>
 </body>
 </html>

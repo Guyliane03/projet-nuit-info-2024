@@ -17,6 +17,29 @@
         <div id="clavier"></div>
     </div>
     <script src="../bonhomme.js"></script>
+    <script>
+        state = 1;
+        setSpeechBubble("Le réchauffement climatique est une menace invisible, qui ronge lentement l’équilibre fragile des mers et des océans. Chaque geste pour comprendre les dégâts peut nous rapprocher de la guérison.");
+        toggleVisibility();
+        document.addEventListener("click", function(){
+            if (state == 1){
+                setSpeechBubble("Aujourd'hui, je te propose un défi… un jeu de mots, mais pas comme les autres. Un voyage où chaque mot manquant révèle une vérité essentielle sur l'impact du réchauffement climatique sur mes vastes étendues. Tu découvriras les conséquences invisibles qui menacent la vie sous la surface.");
+                state = 2;
+            }
+            else if (state == 2){
+                setSpeechBubble("À toi de jouer, mais souviens-toi, chaque erreur pourrait t'éloigner de la vérité. Chaque mot que tu trouves nous rapproche d'un avenir où l'océan, notre bien commun, sera protégé.");
+                state = 3;
+            }
+            else if (state == 3){
+                setSpeechBubble("Prêt à dévoiler les mots cachés et sauver ce qui reste de mon royaume ?");
+                state = 4;
+            }
+            else if (state == 4){
+                toggleVisibility();
+                state = 5;
+            }
+        });
+    </script>
 </body>
 
 </html>

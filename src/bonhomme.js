@@ -34,14 +34,14 @@ style.textContent = `
   }
 
   #character {
-      width: 150px;  /* Taille de l'image du personnage */
+      width: 450px;  /* Taille de l'image du personnage */
       height: auto;
   }
 
   .bubble {
       position: relative;
       bottom: 0;
-      left: 50%;
+      left: 45%;
       transform: translateX(-50%);
       background-color: #f1f1f1;
       border: 1px solid #ccc;
@@ -51,8 +51,9 @@ style.textContent = `
       text-align: center;
       box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
       width: 90%;  /* La bulle s'étend sur 90% de la largeur du conteneur */
-      max-width: 500px;  /* Limiter la taille maximale de la bulle */
+      max-width: 6500px;  /* Limiter la taille maximale de la bulle */
       margin-bottom: 10px; /* Légèrement plus d'espace entre la bulle et le personnage */
+      font-size : 30px;
   }
 
   /* Modification du triangle pour qu'il pointe vers le bas sous la bulle */

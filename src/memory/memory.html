@@ -231,5 +231,25 @@
 
     <script src="../bonhomme.js"></script>
 
+    <script>
+        state = 1;
+        setSpeechBubble("Depuis des siècles, les bateaux sillonnent mes eaux, porteuses de marchandises, d'histoires et de voyages... Mais derrière leur silhouette majestueuse, un sombre secret se cache. Les émissions de gaz polluants qu'ils libèrent dans l'air et dans l'eau perturbent l'équilibre que j'ai maintenu depuis des millénaires.");
+        toggleVisibility();
+        document.addEventListener("click", function(){
+            if (state == 1){
+                setSpeechBubble("Aujourd'hui, je t’invite à un défi de mémoire, un jeu où chaque paire de cartes que tu retrouves révèle une facette cachée de l'impact de différents bateaux sur l'océan.");
+                state = 2;
+            }
+            else if (state == 2){
+                setSpeechBubble("Prêt à tester ta mémoire et à plonger dans les secrets des océans pollués ? Chaque paire découverte est un pas vers un monde plus sain...");
+                state = 3;
+            }
+            else if (state == 3){
+                toggleVisibility();
+                state = 5;
+            }
+        });
+    </script>
+
 </body>
 </html>
