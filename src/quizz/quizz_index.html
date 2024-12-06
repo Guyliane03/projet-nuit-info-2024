@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz : Et si l'océan était un corps humain ?</title>
     <audio id="audio-player" autoplay>
-        <source id="audio-source" src="./audio/audio4.mp3" type="audio/mp3">
+        <source id="audio-source" src="../../audio/audio4.mp3" type="audio/mp3">
     </audio>
     <link rel="stylesheet" href="quizz_style.css">
     <script async src="quizz_script.js"></script>
@@ -28,11 +28,12 @@
         }
         document.addEventListener("click", function(){
             if (state == 1){
+                changeAudio("../../audio/audio4.mp3")
                 setSpeechBubble("L’océan est sensible aux changements extérieurs, aux perturbations et aux blessures... et il réagit aux altérations de son environnement.");
                 state = 2;
             }
             else if (state == 2){
-                changeAudio("./audio/audio5.mp3");
+                changeAudio("../../audio/audio5.mp3");
                 setSpeechBubble("Aujourd’hui, je te propose de tester ta compréhension de ce lien sacré. Ce quiz te guidera à travers des questions qui révéleront les étonnantes ressemblances entre le corps humain et l’océan. Seras-tu capable de percer les mystères de ces deux systèmes interconnectés et vitaux ? Prépare-toi à plonger dans un voyage de découverte… ");
                 state = 3;
             }
