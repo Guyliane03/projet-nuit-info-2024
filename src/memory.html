@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeu de Memory - Zéro Émission</title>
+    <style>
+        /* Police pixelisée pour un style rétro gaming */
+        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+        body {
+            font-family: 'Press Start 2P', cursive; /* Police pixelisée */
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(180deg, #001f3f, #000); /* Dégradé sombre pour l'effet arcade */
+            color: #fff; /* Texte blanc */
+            text-shadow: 1px 1px 2px #000; /* Légère ombre pour le texte */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        h1 {
+            text-align: center;
+            color: white; /* Couleur néon cyan */
+            font-size: 40px;
+            text-shadow: 3px 3px 6px #00d7ff, 0 0 10px #00d7ff, 0 0 20px #00d7ff; /* Effet lumineux */
+            margin-bottom: 20px;
+        }
+
+        .memory-board {
+            display: grid;
+            grid-template-columns: repeat(4, 150px);
+            grid-gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .card {
+            width: 150px;
+            height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            perspective: 1000px; /* Pour un effet de retournement 3D */
+            transition: transform 0.5s;
+        }
+
+        .card-inner {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.5s;
+        }
+
+        .card.flipped .card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .card-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2em;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-face.front {
+            background-color: #003366; /* Fond bleuté pour l'effet océan */
+            box-shadow: 0 0 10px #ff007f, 0 0 20px #ff007f; 
+            color: white;
+        }
+
+        .card-face.back {
+            background-size: cover;
+            background-position: center;
+            transform: rotateY(180deg);
+        }
+
+        .card.matched .card-face.front {
+            background-color: lightskyblue; /* Effet lumineux pour les paires trouvées */
+        }
+
+        .definition {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 20px;
+            text-align: center;
+            color: #ff007f;
+            display: none;
+            max-width: 720px; /* Ensure the definition text does not exceed the memory board width */
+            word-wrap: break-word; /* Ensure long words wrap within the container */
+            margin-left: auto; /* Centers the text horizontally */
+            margin-right: auto; /* Centers the text horizontally */
+            padding: 0 10px; /* Optional: Add padding to prevent the text from touching the edges */
+        }
+        
+
+        .message {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 24px;
+            font-weight: bold;
+            color: #ff007f;
+        }
+
+        /* Effets pour les cartes */
+        .card {
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px #00d7ff; /* Effet lumineux */
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.5), 0 0 30px #00d7ff;
+            transform: scale(1.05); /* Effet d'agrandissement au survol */
+        }
+
+        /* Styles des cartes retournées et non appariées */
+        .card.flipped .card-face.front {
+            background-color: #4e79a7; /* Effet lumineux spécifique pour cartes retournées */
+            box-shadow: 0 0 10px rgba(0, 215, 255, 0.7), 0 0 15px rgba(0, 215, 255, 0.7);
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Jeu de Memory - Zéro Émission</h1>
+    <div class="memory-board">
+        <!-- Cards will be generated here by JavaScript -->
+    </div>
+
+    <div class="message">Trouve toutes les paires !</div>
+    <div class="definition">Voici la première définition qui apparaîtra lorsque la première paire est trouvée.</div>
+
+    <script>
+        const cardsArray = [
+            { id: 1, image: 'images/bateau_peche.jpg', definition: 'Petits bateaux de pêche artisanaux.\nÉmissions estimées : 23 à 80 kg de CO₂/jour.' },
+            { id: 2, image: 'images/katamaranX70.png', definition: 'Catamaran X70 (Race for Water).\nLe catamaran est équipé de panneaux solaires et utilise l\'hydrogène comme source d\'énergie, produit à partir de l\'eau via l\'électrolyse. Ce système permet au bateau de fonctionner de manière autonome, sans émissions polluantes.' },
+            { id: 3, image: 'images/mod70.avif', definition: 'Trimaran MOD70 "(Race for Water).\nCe trimaran est donc conçu pour fonctionner sans émission de CO₂ et pour utiliser l\'hydrogène comme source d\'énergie, produit via l\'électrolyse de l\'eau à partir de l\'énergie solaire ou éolienne à bord.' },
+            { id: 4, image: 'images/paquebot.jpg', definition: 'Un paquebot de croisière.\nÉmissions estimées : 450 à 960 tonnes de CO₂/jour.' },
+            { id: 5, image: 'images/restwater2017.webp', definition: 'Navire race for Water./nIl a été conçu pour être un navire zéro émission en termes d\'émissions de CO₂ pendant ses voyages, grâce à l’utilisation de sources d\'énergie renouvelable. Il fonctionne principalement grâce à trois systèmes : \n.Énergie solaire\n.Énergie éolienne.\n.Hydrogène.' },
+            { id: 6, image: 'images/yacht.webp', definition: 'Superyachts.\nÉmissions estimées : 9200 à 54 000 kg de CO₂/jour.' }
+        ];
+
+        // Duplicate the array to create pairs
+        const cards = [...cardsArray, ...cardsArray];
+
+        // Shuffle the cards
+        cards.sort(() => Math.random() - 0.5);
+
+        const board = document.querySelector('.memory-board');
+        const definitionText = document.querySelector('.definition');
+        const messageText = document.querySelector('.message');
+        let flippedCards = [];
+        let matchedPairs = 0;
+
+        // Create the cards on the board
+        cards.forEach(card => {
+            const cardElement = document.createElement('div');
+            cardElement.classList.add('card');
+            cardElement.dataset.id = card.id;
+            cardElement.dataset.image = card.image;
+            cardElement.dataset.definition = card.definition;
+
+            const cardInner = document.createElement('div');
+            cardInner.classList.add('card-inner');
+
+            const cardFront = document.createElement('div');
+            cardFront.classList.add('card-face', 'front');
+            cardFront.textContent = ''; // Empty front face
+
+            const cardBack = document.createElement('div');
+            cardBack.classList.add('card-face', 'back');
+            cardBack.style.backgroundImage = `url('${card.image}')`;
+
+            cardInner.appendChild(cardFront);
+            cardInner.appendChild(cardBack);
+            cardElement.appendChild(cardInner);
+
+            cardElement.addEventListener('click', flipCard);
+            board.appendChild(cardElement);
+        });
+
+        function flipCard() {
+            if (flippedCards.length === 2) return;
+
+            const card = this;
+            if (flippedCards.includes(card)) return;
+
+            card.classList.add('flipped');
+            flippedCards.push(card);
+
+            // Check for a match
+            if (flippedCards.length === 2) {
+                setTimeout(() => checkMatch(), 500);
+            }
+        }
+
+        function checkMatch() {
+            const [firstCard, secondCard] = flippedCards;
+
+            if (firstCard.dataset.id === secondCard.dataset.id) {
+                firstCard.classList.add('matched');
+                secondCard.classList.add('matched');
+                matchedPairs++;
+
+                // Show the definition when a pair is found
+                definitionText.style.display = 'block';
+                definitionText.textContent = firstCard.dataset.definition;
+
+                // Check if all pairs are matched
+                if (matchedPairs === cardsArray.length) {
+                    messageText.textContent = "Bravo ! Vous avez trouvé toutes les paires.";
+                    definitionText.textContent = 'Toutes les paires ont été trouvées. Félicitations !';
+                }
+            } else {
+                firstCard.classList.remove('flipped');
+                secondCard.classList.remove('flipped');
+            }
+
+            flippedCards = [];
+        }
+    </script>
+
+</body>
+</html>
