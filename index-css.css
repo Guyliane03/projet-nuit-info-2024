@@ -212,9 +212,10 @@ header button:hover {
 }
 
 .jingle {
-    position: relative;
-    height: 200px; /* Taille du conteneur */
-    border: 1px solid black;
+position: absolute;
+    right: 0;
+    background-color: lightgreen;
+    width: 200px;
 }
 .speaker-btn {
     cursor: pointer;
