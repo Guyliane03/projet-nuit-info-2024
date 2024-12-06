@@ -13,9 +13,6 @@ const réponsesPendu = ["MIGRATION", "ELEVATION", "OCEANS"];
 
 let mot = 0;
 
-let nbErreurs = 0;
-
-// Fonction pour générer les spans
 function generateAlphabet() {
     const container = document.createElement('div');
     container.id = 'clavier';
@@ -23,66 +20,80 @@ function generateAlphabet() {
 
     alphabetFr.forEach(letter => {
         const span = document.createElement("span");
-        span.addEventListener("click", () => {
-            console.log(`Lettre cliquée : ${letter}`);
-            updateMotATrouve(réponsesPendu[mot], letter);
-        });
         span.textContent = letter + " ";
         span.id = letter.toLowerCase();
+
+        span.style.cursor = "pointer"; // Pour signaler que c'est cliquable
+        span.style.padding = "5px";
+        span.style.border = "1px solid #ccc";
+        span.style.margin = "2px";
+        span.style.display = "inline-block";
+        span.style.userSelect = "none";
+
+        span.addEventListener("click", () => {
+            // Si la lettre est déjà désactivée, ignorer
+            if (span.style.pointerEvents === "none") return;
+
+            // Vérifier si la lettre est correcte ou non
+            if (bonneLettre(réponsesPendu[mot], letter)) {
+                span.style.backgroundColor = "green"; // Correcte
+            } else {
+                span.style.backgroundColor = "red"; // Incorrecte
+            }
+            span.style.color = "white"; // Rendre le texte plus visible
+            span.style.pointerEvents = "none"; // Désactiver le clic
+            span.style.opacity = "0.6"; // Griser
+
+            updateMotATrouve(réponsesPendu[mot], letter);
+        });
+
         container.appendChild(span);
     });
 }
 
-// Fonction pour vérifier si une lettre est bonne
 function bonneLettre(mot1, lettre) {
-    return mot1.includes(lettre); // Vérifie si la lettre est dans le mot
+    return mot1.includes(lettre);
 }
 
-// Mise à jour du mot à trouver avec les bonnes lettres
 function updateMotATrouve(mot1, lettre) {
-    // Si la lettre est dans le mot
     if (bonneLettre(mot1, lettre)) {
-        // Mettre à jour les underscores avec la lettre trouvée
         let updatedText = "";
         for (let i = 0; i < mot1.length; i++) {
             if (mot1[i] === lettre) {
-                updatedText += lettre; // Ajouter la lettre trouvée
+                updatedText += lettre;
             } else {
-                updatedText += motATrouve.textContent[i]; // Conserver l'état précédent
+                updatedText += motATrouve.textContent[i];
             }
         }
-        motATrouve.textContent = updatedText; // Mettre à jour l'affichage
+        motATrouve.textContent = updatedText;
 
-        // Vérifier si le mot entier a été trouvé
         if (motATrouve.textContent === mot1) {
-            // Afficher un message de félicitations
             congratulations.textContent = `Bravo ! Vous avez trouvé le mot : ${mot1}`;
+            nextButton.style.display = "block";
         }
-    } else {
-        console.log(`La lettre ${lettre} n'est pas dans le mot.`);
-        nbErreurs++;
-        console.log("Nombre d'erreurs : " + nbErreurs);
     }
 }
 
-// Création de la question
 const question = document.createElement("p");
 question.textContent = questionsPendu[mot];
 document.body.appendChild(question);
 
-// Création de l'affichage du mot à trouver
 let motATrouve = document.createElement('p');
 motATrouve.textContent = "_".repeat(réponsesPendu[mot].length);
 document.body.appendChild(motATrouve);
 
-// Ajout du message de félicitations
 const congratulations = document.createElement('p');
-congratulations.id = 'congratulations';
+congratulations.style.color = 'green';
+congratulations.style.fontWeight = 'bold';
 document.body.appendChild(congratulations);
 
-// Bouton "Suivant"
+const buttonContainer = document.createElement('div');
+buttonContainer.style.textAlign = "center";
+document.body.appendChild(buttonContainer);
+
 const nextButton = document.createElement('button');
 nextButton.textContent = "Suivant";
+nextButton.style.display = "none";
 nextButton.onclick = () => {
     mot++;
 
@@ -91,14 +102,20 @@ nextButton.onclick = () => {
         nextButton.disabled = true; 
     } else {
         question.textContent = questionsPendu[mot];
-        motATrouve.textContent = "_".repeat(réponsesPendu[mot].length); // Réinitialiser l'affichage du mot
-        congratulations.textContent = ""; // Réinitialiser le message de félicitations
+        motATrouve.textContent = "_".repeat(réponsesPendu[mot].length);
+        congratulations.textContent = "";
+        nextButton.style.display = "none";
+
+        // Réinitialiser l'état des lettres
+        const spans = document.querySelectorAll('#clavier span');
+        spans.forEach(span => {
+            span.style.pointerEvents = "auto"; // Rendre cliquable
+            span.style.backgroundColor = ""; // Réinitialiser la couleur
+            span.style.color = ""; 
+            span.style.opacity = "1"; // Rétablir l'opacité
+        });
     }
 };
+buttonContainer.appendChild(nextButton);
 
-// Générer l'alphabet
 generateAlphabet();
-
-document.body.appendChild(nextButton);
-
-
