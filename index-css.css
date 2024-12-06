@@ -210,3 +210,26 @@ header button:hover {
     background: rgba(0, 0, 0, 0.5); /* Semi-transparence pour faire ressortir le texte */
 
 }
+
+.jingle {
+    position: relative;
+    height: 200px; /* Taille du conteneur */
+    border: 1px solid black;
+}
+.speaker-btn {
+    cursor: pointer;
+    background-color: white;
+    color: white;
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.speaker-btn:hover {
+    background-color: white;
+}
+.speaker-btn img {
+    width: 40px;  /* Taille réduite de l'image */
+    height: 40px;  /* Taille réduite de l'image */
+}
