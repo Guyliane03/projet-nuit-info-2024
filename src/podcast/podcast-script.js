@@ -3,13 +3,13 @@ const tracks = [
     {
         title: "Oona Layolle-001-SD",
         artist: "Florian Sevellec",
-        src: "audio/Florian Sevellec - Oona Layolle-001-SD 480p.mp3",
+        src: "Florian Sevellec - Oona Layolle-001-SD 480p.mp3",
         cover: "images/logo.png"
     },
     {
         title: "Sevellec-004-SD",
         artist: "Florian Sevellec",
-        src: "audio/Florian Sevellec-004-SD 480p.mp3",
+        src: "Florian Sevellec-004-SD 480p.mp3",
         cover: "images/logo.png"
     }
 ];
