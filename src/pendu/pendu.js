@@ -36,7 +36,7 @@ function generateAlphabet() {
 
             // Vérifier si la lettre est correcte ou non
             if (bonneLettre(réponsesPendu[mot], letter)) {
-                span.style.backgroundColor = "green"; // Correcte
+                span.style.backgroundColor = #00ff6a; // Correcte
             } else {
                 span.style.backgroundColor = "red"; // Incorrecte
             }
@@ -83,7 +83,7 @@ motATrouve.textContent = "_".repeat(réponsesPendu[mot].length);
 document.body.appendChild(motATrouve);
 
 const congratulations = document.createElement('p');
-congratulations.style.color = 'green';
+congratulations.style.color = #00ff6a;
 congratulations.style.fontWeight = 'bold';
 document.body.appendChild(congratulations);
 
