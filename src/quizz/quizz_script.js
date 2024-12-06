@@ -54,6 +54,7 @@ function showQuestion() {
     if (currentQuestionIndex >= questions.length) {
         quizContainer.innerHTML = "<h2>Quiz terminé ! 🎉</h2>";
         localStorage.setItem("games_completed",1);
+        doneButton.style.display = "block";
         return;
     }
 
@@ -108,5 +109,13 @@ function checkAnswer(selectedAnswer, button, choicesDiv, correctAnswer, explanat
     };
     feedback.appendChild(nextButton);
 }
+
+const doneButton = document.createElement('button');
+doneButton.textContent = "Terminer";
+doneButton.style.display = "none";
+doneButton.onClick = () => {
+    window.location.href = "https://guyliane03.github.io/projet-nuit-info-2024/src/map/map.html";
+}
+feedback.appendChild(doneButton);
 
 showQuestion();
