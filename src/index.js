@@ -32,7 +32,7 @@ function augmenterTexte(pixel) {
 (function() {
     'use strict';
 
-    if (localStorage.getItem("games_completed") == null) localStorage.setItem("games_completed", 0);
+    localStorage.setItem("games_completed", 0);
 
     let etat_menu_open = false;
 
