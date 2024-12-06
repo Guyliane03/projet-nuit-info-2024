@@ -1,2 +1,79 @@
 body {
- font-family: 
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+
+#clavier {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+#clavier span {
+    font-size: 24px;
+    padding: 10px;
+    margin: 5px;
+    background-color: #ececec;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#clavier span:hover {
+    background-color: #c7c7c7;
+    transform: scale(1.1);
+}
+
+#clavier span:active {
+    background-color: #a6a6a6;
+}
+
+p {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+}
+
+#motATrouve {
+    margin: 20px 0;
+    font-size: 30px;
+    letter-spacing: 5px;
+    font-family: monospace;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+button:disabled {
+    background-color: #d3d3d3;
+    cursor: not-allowed;
+}
+
+#congratulations {
+    margin-top: 20px;
+    font-size: 20px;
+    color: #4CAF50;
+    font-weight: bold;
+}
