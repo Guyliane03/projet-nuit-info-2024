@@ -1,12 +1,28 @@
+/* Police pixelisée pour un style rétro gaming */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f7f7f7;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
+    font-family: 'Press Start 2P', cursive; /* Police pixelisée */
     margin: 0;
+    padding: 0;
+    background: linear-gradient(180deg, #001f3f, #000); /* Dégradé sombre pour l'effet arcade */
+    color: #fff; /* Texte blanc */
+    text-shadow: 1px 1px 2px #000; /* Légère ombre pour le texte */
+    display: block; /* Remplacer 'flex' par 'block' pour que le contenu s'adapte */
+    min-height: 100vh; /* Garantir que la fenêtre a au moins la hauteur de l'écran */
+    height: auto; /* La hauteur s'ajuste en fonction du contenu */
+    overflow: auto; /* Permet de défiler si nécessaire */
+    padding-top: 20px; /* Optionnel : espace supplémentaire en haut pour que le contenu ne touche pas le bord */
+}
+
+h1 {
+    text-align: center;
+    color: #ffffff; /* Couleur néon rose */
+    font-size: 40px;
+    text-shadow: 3px 3px 6px #ff007f, 0 0 10px #ff007f, 0 0 20px #ff007f; /* Effet lumineux */
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    margin-left: 20px
 }
 
 #clavier {
@@ -20,25 +36,30 @@ body {
     font-size: 24px;
     padding: 10px;
     margin: 5px;
-    background-color: #ececec;
+    background-color: #2c3e50;
     border-radius: 5px;
     cursor: pointer;
+    color: #00d7ff; /* Couleur néon cyan */
     transition: background-color 0.3s ease, transform 0.2s ease;
+    text-shadow: 1px 1px 2px #000; /* Légère ombre pour les lettres */
 }
 
 #clavier span:hover {
-    background-color: #c7c7c7;
+    background-color: #00d7ff;
     transform: scale(1.1);
+    color: #fff;
 }
 
 #clavier span:active {
-    background-color: #a6a6a6;
+    background-color: #00aaff;
 }
 
 p {
     font-size: 24px;
     font-weight: bold;
     text-align: center;
+    color: #00d7ff; /* Couleur néon cyan */
+    text-shadow: 2px 2px 4px #000;
 }
 
 #motATrouve {
@@ -46,34 +67,33 @@ p {
     font-size: 30px;
     letter-spacing: 5px;
     font-family: monospace;
+    text-align: center;
 }
 
 button {
-    background-color: #4CAF50;
+    background: #ff007f; /* Couleur néon rose */
     color: white;
-    border: none;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    border-radius: 5px;
+    border: 2px solid #fff; /* Bordure blanche */
+    border-radius: 10px;
+    padding: 15px;
+    font-size: 18px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    box-shadow: 0 0 10px #ff007f, 0 0 20px #ff007f; /* Effet lumineux rose */
+    transition: all 0.3s ease;
+    display: block; /* Bouton centré */
+    margin: 20px auto; /* Marges automatiques pour le centrer */
 }
 
 button:hover {
-    background-color: #45a049;
-}
-
-button:disabled {
-    background-color: #d3d3d3;
-    cursor: not-allowed;
+    background: #e60073; /* Couleur rose foncée au survol */
+    box-shadow: 0 0 15px #e60073, 0 0 30px #ff007f;
+    transform: scale(1.1);
 }
 
 #congratulations {
     margin-top: 20px;
     font-size: 20px;
-    color: #4CAF50;
+    color: #00ff6a; /* Vert néon pour les félicitations */
     font-weight: bold;
+    text-align: center;
 }
