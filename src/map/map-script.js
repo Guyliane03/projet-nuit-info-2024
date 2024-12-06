@@ -40,6 +40,9 @@ function augmenterTexte(pixel) {
     const container = document.querySelector("body");
     const poubelles = [];
 
+
+    const link_poubelles = ["../quizz/quizz_index.html", "../pendu/pendu.html","../memory/memory.html"];
+
     // Création des poubelles (points)
     for (let i = 0; i < position_top_poubelle.length; i++) {
         let poubelle = document.createElement("div");
@@ -48,6 +51,10 @@ function augmenterTexte(pixel) {
         poubelle.style.top = position_top_poubelle[i];
         poubelle.style.left = position_left_poubelle[i];
         poubelle.style.position = "absolute";
+
+        poubelle.addEventListener("click", function(){
+            document.location.href=link_poubelles[i];
+        });
 
         container.appendChild(poubelle);
         poubelles.push(poubelle);
