@@ -126,3 +126,28 @@ header h1 {
     background: #00ffff;
     color: #000;
 }
+
+.jingle {
+position: absolute;
+  right: 10px;
+  background-color: ;
+  width: px;
+  top: 5px;
+}
+.speaker-btn {
+    cursor: pointer;
+    background-color: white;
+    color: white;
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.speaker-btn:hover {
+    background-color: white;
+}
+.speaker-btn img {
+    width: 40px;  /* Taille réduite de l'image */
+    height: 40px;  /* Taille réduite de l'image */
+}
